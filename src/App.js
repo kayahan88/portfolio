@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import background from './assets/extended-cropped.jpg.jpg';
+import sky from './assets/sky.jpg';
 import yaybaby from './assets/YayBaby.png';
 import beenthere from './assets/been-there.png';
 import kskin from './assets/k-skin.png';
@@ -25,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <img src={background} className='background-image'/>
-
+      <img src={sky} className='sky' />
       <section>
         <button className='portfolio' id='portfolio' onClick={() => toggleDropDown()}>PORTFOLIO</button>
       </section>
