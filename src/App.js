@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
 import background from './assets/extended-cropped.jpg.jpg';
+import kaya from './assets/kaya.jpg';
 import sky from './assets/sky.jpg';
+import hamburger from './assets/hamburger.png';
 import yaybaby from './assets/YayBaby.png';
 import beenthere from './assets/been-there.png';
 import kskin from './assets/k-skin.png';
@@ -14,6 +16,7 @@ import twitter from './assets/twitter-color.png';
 const App = () => {
 
   const [dropDown, setDropDown] = useState('hide')
+  const [contact, setContact] = useState('hide');
 
   const toggleDropDown = () => {
     if(dropDown === 'hide'){
@@ -21,14 +24,24 @@ const App = () => {
     } else {
       setDropDown('hide')
     }
-  }
+  };
+
+  const toggleContact = () => {
+    if(contact === 'hide'){
+      setContact('show-contact')
+    } else {
+      setContact('hide')
+    }
+  };
 
   return (
     <div className="App">
       <img src={background} className='background-image'/>
+      
       <img src={sky} className='sky' />
-      <section>
+      <section className='header'>
         <button className='portfolio' id='portfolio' onClick={() => toggleDropDown()}>PORTFOLIO</button>
+        <img src={hamburger} onClick={() => toggleDropDown()} className='hamburger' />
       </section>
 
       <section className={dropDown}>
@@ -42,6 +55,7 @@ const App = () => {
       <section className='title' id='title'>
         <div className='kaya'>KAYA HAN</div>
         <div className='subtitle'>Full-Stack Developer</div>
+        <img src={kaya} className='background-image-2' />
         <section className='cv'>
           <a href='https://docs.google.com/document/d/1mVdwtE1Sze4QiE5xk4KDo_cZuGWcMQ3Im1yeERk5alk/edit?usp=sharing' target='_blank'>Download CV</a>
           <a href='#page-5'>Contact Me</a>
@@ -107,8 +121,11 @@ const App = () => {
             <a href='https://twitter.com/kayatabitha' target='_blank'><img className='social' src={twitter}/></a>
           </section>
           <section className='contact-info'>
-            <div>EMAIL: kayatabitha@gmail.com</div>
-            <div>PHONE: 801-471-1783</div>
+            <button className='contact-button' onClick={() => toggleContact()}>CONTACT ME</button>
+            <section className={contact}>
+              <div>EMAIL: kayatabitha@gmail.com</div>
+              <div>PHONE: 801-471-1783</div>
+            </section>
           </section>
         </section>
         <a className='back-to-top' href='#top'>BACK TO TOP</a>
